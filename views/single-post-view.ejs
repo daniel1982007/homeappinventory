@@ -1,0 +1,14 @@
+<%- include("includes/header") %>
+    <div class="light-grey">
+        <div class="container-sm">
+            <ul class="list-group txt-center">
+                <li><a href="#"><i class="fa fa-edit fa-lg margin-l-r edit-i-clr"></i></a><a href="#"><i class="fa fa-trash-o fa-lg margin-l-r delete-i-clr"></i></a></li>
+                <li class="list-item"><h1><%= post.category%></h1></li>
+                <li class="list-item"><span class="txt-2em"><%= post.name%></span>&nbsp;<span class="txt-2em"><%= post.quantity %>公斤</span></li>
+            </ul>
+            <div class="flex-row">
+                <a href="/profile/<%= post.author.username %>"><img src="<%= post.author.avatar %>" class="avatar-img inline-block"></a><span class="margin-l-r inline-block"><%= post.author.username %></span><span>创建日期 <%= post.createDate.getMonth() + 1%>/<%= post.createDate.getDate()%>/<%= post.createDate.getFullYear()%></span> 
+            </div> 
+        </div>
+    </div>
+<%- include("includes/footer") %>

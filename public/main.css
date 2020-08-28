@@ -1,0 +1,376 @@
+* {
+    font-family: 'Hiragino Kaku Gothic Pro', 'WenQuanYi Zen Hei', '微軟正黑體', '蘋果儷中黑', Helvetica, Arial, sans-serif;;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header-flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(201, 171, 171);
+}
+
+.strong {
+    margin: 10px 20px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row a {
+    display: inline-block;
+}
+
+.form-margin {
+    margin: 10px;
+}
+
+.block-link {
+    display: block;
+    margin-left: 15px;
+}
+
+.avatar-img {
+    display: inline-block;
+    width: 32px;
+    border-radius: 15px;
+}
+
+.reg-form-margin {
+    margin: 20px;
+}
+.reg-form-margin input {
+    width: 60%;
+    padding: 10px;
+}
+.reg-form-margin button {
+    width: 60%;
+    padding: 20px;
+    background-color: rgb(201, 171, 171);
+}
+
+input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px lightskyblue;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: 1px;
+    border-radius: 5px;
+}
+
+.margin-lr {
+    padding: 5px 20px;
+    margin: 20px;
+}
+
+.btn-reg {
+   width: 100%;
+   margin-top: 10px;
+}
+
+button:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+.column {
+    flex: 1;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.label-block {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.light-grey {
+    background-color: lightgrey;
+}
+
+.column h2 {
+    margin-bottom: 20px;
+}
+.column p {
+    margin: 0 20px;
+}
+
+/* a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+} */
+a:hover {
+    color: grey;
+}
+
+@media (max-width: 690px) {
+    .header-flex-row {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-row {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-margin {
+        margin: 5px 0;
+    }
+    .form-margin label {
+        display: block;
+    }
+    
+}
+
+.center-box {
+    width: 90vw;
+    padding: 30px 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+.center-box h2 {
+    text-align: center;
+}
+.align-end {
+    text-align: right;
+}
+.center-box p {
+    margin-top: 20px;
+}
+.padding-tb {
+    padding: 30px 0;
+}
+.mistake-message {
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(204, 173, 173);
+    color: black;
+    border-radius: 5px;
+    text-shadow: 0px -9px 10px black;
+    box-shadow: 0 0 4px 0px black;
+    width: 60%;
+    margin: 10px auto;
+}
+
+.footer {
+    text-align: center;
+    border-top: 1px grey solid;
+    padding: 5px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+.input-box label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+.input-box input {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+.input-box p {
+    display: inline;
+    margin: 0 10px;
+    font-size: 20px;
+}
+.text-input {
+    width: 50%;
+}
+.number-input {
+    width: 20%;
+}
+
+.btn-template {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgb(239,239,239);
+}
+.center-box a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+.center-box a:hover {
+   background-color: rgb(74,74,74)
+}
+
+.inline-block {
+    display: inline-block;
+}
+.layout {
+    margin: 20px 80px 0 80px;
+    padding: 20px 20px 10px 20px;
+}
+.border-bottom {
+    border-bottom: grey 1px solid;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.search-overlay {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(226, 219, 219, 0.915);
+    visibility: hidden;
+    opacity: 0;
+}
+.search-overlay--visible {
+    visibility: visible;
+    opacity: 1;
+}
+.search-overlay-top {
+    background-color: #fff;
+}
+.search-overlay-top * {
+    display: inline-block;
+}
+.container-sm {
+    margin: 0 auto;
+    width: 70vw;
+    padding: 15px 0;
+}
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-overlay-top .fa-search {
+    color: blue;
+}
+.search-overlay-top i {
+    margin: 0 20px;
+}
+.search-overlay-top input {
+    font-size: 30px;
+    flex: 1;
+    box-shadow: 0 0 0 0;
+}
+.search-result-list {
+    list-style: none;
+    background-color: #fff;
+}
+.list-item {
+    border: 1px solid lightgrey;
+    border-width: 1px 1px 0 1px;
+    padding: 10px;
+}
+.list-item a {
+    color: grey;
+}
+.live-result-header {
+    background-color: rgb(77, 77, 216);
+    border: 1px solid lightgrey;
+    border-width: 1px 1px 0 1px;
+    color: #fff;
+    padding: 10px;
+}
+.a-flex {
+    display: flex;
+    align-items: center;
+}
+.avatar-tiny {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.search-title-size {
+    margin: 10px 20px;
+    font-weight: bold;
+    font-size: 1em;
+}
+.live-search-results {
+    visibility: hidden;
+    opacity: 0;
+}
+.live-search-results--visible {
+    visibility: visible;
+    opacity: 1;
+}
+.loader-search {
+    margin-bottom: 20px;
+    visibility: hidden;
+    opacity: 0;
+}
+.loader-search i {
+    display: inline-block;
+    margin: 0 auto;
+}
+.loader-search--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.list-group {
+    list-style: none;
+}
+
+.txt-center {
+    text-align: center;
+}
+.txt-2em {
+    font-size: 2em;
+}
+
+.margin-l-r {
+    margin: 0 30px;
+}
+
+.edit-i-clr {
+    color: blue;
+}
+.delete-i-clr {
+    color:red;
+}
+
+/* new */
+.bg-main {
+    background-color: rgb(201, 171, 171);
+}
+
+.avatar-header {
+    width: 40px;
+}
+
+.bg-lightgrey {
+    background-color: lightgrey;
+}
+
+.bg-lightgrey:hover {
+    background-color: grey;
+}

@@ -1,0 +1,14 @@
+<%- include("includes/header") %>
+<div class="light-grey">
+    <div class="container-sm">
+        <img src="<%= foundUserAvatar%>" class="avatar-img" alt=""><span><%= foundUsername %></span>
+    <% posts.forEach(function(post) { %>
+        <div>
+            <h5><%= post.name %></h5>
+            <h5><%= post.quantity %></h5>
+        </div>
+    <% }) %>
+    </div>
+</div>
+
+<%- include("includes/footer") %>

@@ -1,0 +1,17 @@
+<%- include("includes/header")%>
+
+    <section id="section-main" class="light-grey">
+        <div class="center-box">
+            <form action="/create-post-veg/<%= post._id%>/edit" method="POST">
+                <div class="input-box">
+                    <label for="vegetable">蔬菜</label>
+                    <input type="text" name="vegetable" value="<%= post.vegetable %>" class="text-input" placeholder="输入蔬菜名">
+                    <input type="number" step="0.01" name="vegequantity" value="<%= post.vegequantity %>" class="number-input">
+                    <p>公斤</p>
+                    <button type="submit" class="btn btn-template">更新</button>    
+                </div>  
+            </form>
+        </div>
+    </section>
+
+<%- include("includes/footer")%>
