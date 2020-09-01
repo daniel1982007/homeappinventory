@@ -1,45 +1,108 @@
 <%- include("includes/header")%>
 
     <section id="section-main" class="light-grey">
-        
-        <div class="center-box">
+        <div class="container py-3">
             <form action="/create/vegetable" method="POST">
-                <div class="input-box">
-                    <label for="name">蔬菜</label>
-                    <input type="text" name="name" class="text-input" placeholder="输入蔬菜名">
-                    <input type="number" step="0.01" name="quantity" class="number-input">
-                    <p>公斤</p>
-                    <button type="submit" class="btn btn-template">保存并提交</button>    
-                </div>  
+                <div class="my-3">
+                    <h2 class="text-center">蔬菜</h2>
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <input type="text" name="name" class="form-control" placeholder="输入蔬菜名">
+                        </div>
+                        <div class="col-md mb-2">
+                            <input type="number" step="0.01" name="quantity" class="form-control" placeholder="输入数量">
+                        </div>
+                        <div class="col-md mb-2">
+                            <select name="unit" class="form-select">
+                                <option value="kg">公斤</option>
+                                <option value="box">盒</option>
+                                <option value="package">袋</option>
+                                <option value="single">个</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-light">保存并提交</button>
+                        </div>
+                    </div>
+                </div>   
             </form>
             <form action="/create/meat" method="POST">
-                <div class="input-box">
-                    <label for="name">肉类</label>
-                    <input type="text" name="name" class="text-input" placeholder="输入肉类名">
-                    <input type="number" step="0.01" name="quantity" class="number-input">
-                    <p>公斤</p>
-                    <button type="submit" class="btn btn-template">保存并提交</button>
-                </div>
+                <div class="my-3">
+                    <h2 class="text-center">肉类</h2>
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <input type="text" name="name" class="form-control" placeholder="输入肉类名">
+                        </div>
+                        <div class="col-md mb-2">
+                            <input type="number" step="0.01" name="quantity" class="form-control" placeholder="输入数量">
+                        </div>
+                        <div class="col-md mb-2">
+                            <select name="unit" class="form-select">
+                                <option value="kg">公斤</option>
+                                <option value="box">盒</option>
+                                <option value="package">袋</option>
+                                <option value="single">个</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-light">保存并提交</button>
+                        </div>
+                    </div>
+                </div>    
             </form>
             <form action="/create/fruit" method="POST">
-                <div class="input-box">
-                    <label for="name">水果</label>
-                    <input type="text" name="name" class="text-input" placeholder="输入水果名">
-                    <input type="number" step="0.01" name="quantity" class="number-input">
-                    <p>公斤</p>
-                    <button type="submit" class="btn btn-template">保存并提交</button>
-                </div>
+                <div class="my-3">
+                    <h2 class="text-center">水果</h2>
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <input type="text" name="name" class="form-control" placeholder="输入水果名">
+                        </div>
+                        <div class="col-md mb-2">
+                            <input type="number" step="0.01" name="quantity" class="form-control" placeholder="输入数量">
+                        </div>
+                        <div class="col-md mb-2">
+                            <select name="unit" class="form-select">
+                                <option value="kg">公斤</option>
+                                <option value="box">盒</option>
+                                <option value="package">袋</option>
+                                <option value="single">个</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-light">保存并提交</button>
+                        </div>
+                    </div>
+                </div>    
             </form>
             <form action="/create/other" method="POST">
-                <div class="input-box">
-                    <label for="name">其他</label>
-                    <input type="text" name="name" class="text-input" placeholder="输入其他类">
-                    <input type="number" step="0.01" name="quantity" class="number-input">
-                    <p>公斤</p>
-                    <button type="submit" class="btn btn-template">保存并提交</button>
+                <div class="my-3">
+                    <h2 class="text-center">其他</h2>
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <input type="text" name="name" class="form-control" placeholder="输入其他类">
+                        </div>
+                        <div class="col-md mb-2">
+                            <input type="number" step="0.01" name="quantity" class="form-control" placeholder="输入数量">
+                        </div>
+                        <div class="col-md mb-2">
+                            <select name="unit" class="form-select">
+                                <option value="kg">公斤</option>
+                                <option value="box">盒</option>
+                                <option value="package">袋</option>
+                                <option value="single">个</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-light">保存并提交</button>
+                        </div>
+                    </div>
                 </div>
             </form>
-            <a href="/" class="btn btn-template">返回总览</a>
+            <a href="/" class="btn btn-light">返回总览</a>
         </div>
     </section>
 

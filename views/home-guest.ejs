@@ -6,32 +6,32 @@
                     <div class="mistake-message"><%= mistake %></div>
                 <% }) %>
             </div>
-            <div class="flex-row light-grey">
-                <div class="column">
+            <div class="d-flex flex-column pt-4 flex-md-row align-items-center text-center light-grey">
+                <div class="container px-5 my-2">
                     <h2>团体生活需要你！</h2>
                     <p>这是我们的家，是我们共同经营的美地，这地的出产丰富，有小麦、大麦、葡萄树、无花果树、石榴树、有铁有铜。</p>
                 </div>
-                <div class="column">
+                <div class="container px-5 my-2">
                     <% regErrors.forEach(function(regError) { %>
-                        <div class="mistake-message"><%= regError %></div>
+                        <div class="alert alert-danger my-2"><%= regError %></div>
                     <% }) %>
                     
                     <h2>请注册用户</h2>
                     <form action="/register" method="POST">
-                        <div class="reg-form-margin">
-                            <label for="username" class="label-block">用户名</label>
-                            <input type="text" name="username" id="username" placeholder="请选择一个用户名">
+                        <div class="mx-4 mb-2">
+                            <label for="username" class="form-label">用户名</label>
+                            <input type="text" name="username" id="username" class="form-control" placeholder="请选择一个用户名">
                         </div>
-                        <div class="reg-form-margin">
-                            <label for="email" class="label-block">邮箱</label>
-                            <input type="email" name="email" id="email" placeholder="输入电子邮箱">
+                        <div class="mx-4 mb-2">
+                            <label for="email" class="form-label">邮箱</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="输入电子邮箱">
                         </div>
-                        <div class="reg-form-margin">
-                            <label for="password" class="label-block">密码</label>
-                            <input type="password" name="password" id="password" placeholder="输入密码">
+                        <div class="mx-4 mb-2">
+                            <label for="password" class="form-label">密码</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="输入密码">
                         </div>
-                        <div class="reg-form-margin">
-                            <button type="submit" class="btn btn-reg">注册</button>
+                        <div class="mx-4 mb-2">
+                            <button type="submit" class="btn btn-primary">注册</button>
                         </div>
                     </form>  
                 </div>

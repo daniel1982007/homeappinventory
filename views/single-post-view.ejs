@@ -1,14 +1,14 @@
 <%- include("includes/header") %>
-    <div class="light-grey">
-        <div class="container-sm">
-            <ul class="list-group txt-center">
-                <li><a href="#"><i class="fa fa-edit fa-lg margin-l-r edit-i-clr"></i></a><a href="#"><i class="fa fa-trash-o fa-lg margin-l-r delete-i-clr"></i></a></li>
-                <li class="list-item"><h1><%= post.category%></h1></li>
-                <li class="list-item"><span class="txt-2em"><%= post.name%></span>&nbsp;<span class="txt-2em"><%= post.quantity %>公斤</span></li>
+    <section id="record" class="light-grey">
+        <div class="container py-3">
+            <ul class="list-group text-center mb-3">
+                <li><a href="#" class="mr-3 text-primary"><i class="fa fa-edit"></i></a><a href="#" class="mr-3 text-danger"><i class="fa fa-trash-o"></i></a></li>
+                <li class="list-group-item active"><h2 class="mb-0"><%= post.category%></h2></li>
+                <li class="list-group-item light-grey"><span class="h4"><%= post.name%></span>&nbsp;<span class="h4"><%= post.quantity %>公斤</span></li>
             </ul>
             <div class="flex-row">
-                <a href="/profile/<%= post.author.username %>"><img src="<%= post.author.avatar %>" class="avatar-img inline-block"></a><span class="margin-l-r inline-block"><%= post.author.username %></span><span>创建日期 <%= post.createDate.getMonth() + 1%>/<%= post.createDate.getDate()%>/<%= post.createDate.getFullYear()%></span> 
-            </div> 
+                <a href="/profile/<%= post.author.username %>" class="mr-2"><img src="<%= post.author.avatar %>" class="img-fluid rounded-circle avatar-header"></a><span class="mr-2"><%= post.author.username %></span><span>创建日期 <%= post.createDate.getMonth() + 1%>/<%= post.createDate.getDate()%>/<%= post.createDate.getFullYear()%></span> 
+            </div>
         </div>
-    </div>
+    </section> 
 <%- include("includes/footer") %>

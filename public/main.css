@@ -93,10 +93,10 @@ button:focus {
 
 .column {
     flex: 1;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
     padding: 60px 30px;
     text-align: center;
 }
@@ -115,13 +115,13 @@ button:focus {
 }
 .column p {
     margin: 0 20px;
-}
+} 
 
 /* a {
     text-decoration: none;
     cursor: pointer;
     color: #000;
-} */
+}
 a:hover {
     color: grey;
 }
@@ -235,38 +235,53 @@ a:hover {
     text-decoration: underline;
 }
 
-.search-overlay {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(226, 219, 219, 0.915);
-    visibility: hidden;
-    opacity: 0;
-}
-.search-overlay--visible {
-    visibility: visible;
-    opacity: 1;
-}
-.search-overlay-top {
-    background-color: #fff;
-}
-.search-overlay-top * {
-    display: inline-block;
-}
-.container-sm {
+
+/* .container-sm {
     margin: 0 auto;
     width: 70vw;
     padding: 15px 0;
-}
-.container-flex {
+} */
+/* .container-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+
+.txt-center {
+    text-align: center;
+}
+.txt-2em {
+    font-size: 2em;
+}
+
+.margin-l-r {
+    margin: 0 30px;
+}
+
+.edit-i-clr {
+    color: blue;
+}
+.delete-i-clr {
+    color:red;
+} */ 
+
+/* new */
+.bg-main {
+    background-color: rgb(201, 171, 171);
+}
+
+.avatar-header {
+    width: 40px;
+}
+
+.bg-lightgrey {
+    background-color: lightgrey;
+}
+
+.bg-lightgrey:hover {
+    background-color: grey;
 }
 
 .search-overlay-top .fa-search {
@@ -340,37 +355,26 @@ a:hover {
     list-style: none;
 }
 
-.txt-center {
-    text-align: center;
+.search-overlay {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(226, 219, 219, 0.915);
+    visibility: hidden;
+    opacity: 0;
 }
-.txt-2em {
-    font-size: 2em;
+.search-overlay--visible {
+    visibility: visible;
+    opacity: 1;
 }
-
-.margin-l-r {
-    margin: 0 30px;
+.search-overlay-top {
+    background-color: #fff;
 }
-
-.edit-i-clr {
-    color: blue;
-}
-.delete-i-clr {
-    color:red;
-}
-
-/* new */
-.bg-main {
-    background-color: rgb(201, 171, 171);
-}
-
-.avatar-header {
-    width: 40px;
-}
-
-.bg-lightgrey {
-    background-color: lightgrey;
-}
-
-.bg-lightgrey:hover {
-    background-color: grey;
+.search-overlay-top * {
+    display: inline-block;
 }
