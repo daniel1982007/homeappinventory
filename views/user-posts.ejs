@@ -10,13 +10,15 @@
             </li>
             <% posts.forEach(function(post) { %>
                 <li class="list-group-item light-grey">
-                    <div class="row">
-                        <h4 class="col-3 mb-0"><%= post.name %></h4>
-                        <h4 class="col-3 mb-0"><%= post.quantity %></h4>
-                        <h4 class="col-2 mb-0"><%= post.unit %></h4>
-                        <h6 class="col-4 mb-0"><%= post.createDate.getMonth()+1 %>/<%= post.createDate.getDate() %>/<%= post.createDate.getFullYear() %></h6>
+                    <a href="/<%= post.category%>/<%= post._id %>" class="text-decoration-none text-dark">
+                        <div class="row">
+                            <h4 class="col-3 mb-0"><%= post.name %></h4>
+                            <h4 class="col-3 mb-0"><%= post.quantity %></h4>
+                            <h4 class="col-2 mb-0"><%= post.unit %></h4>
+                            <h6 class="col-4 mb-0"><%= post.createDate.getMonth()+1 %>/<%= post.createDate.getDate() %>/<%= post.createDate.getFullYear() %></h6>
 
-                    </div>
+                        </div>
+                    </a>
                 </li>
             <% }) %>     
         </ul>
