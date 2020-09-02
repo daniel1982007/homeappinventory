@@ -95,10 +95,11 @@ export default class Search {
     injectHTML() {
         document.body.insertAdjacentHTML("beforeend", `<div class="search-overlay">
             <div class="search-overlay-top">
-                <div class="container p-3 d-flex flex-row">
-                    <i class="fa fa-search fa-2x"></i>
-                    <input id="searchInput" name="searchInput" placeholder="您想要搜寻什么...">
-                    <a><i class="fa fa-close fa-2x"></i></a>
+                <div class="container-md p-3 d-flex flex-row">
+                    <div class="col-1"><i class="fa fa-search fa-2x"></i></div>
+                    <input id="searchInput" name="searchInput" class="col-10" placeholder="您想要搜寻什么...">
+                    <div class="col-1"><a><i class="fa fa-close fa-2x"></i></a></div>
+                    
                 </div>
             </div>
             <div class="search-overlay-bottom">
