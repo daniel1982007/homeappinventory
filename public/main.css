@@ -378,3 +378,7 @@ a:hover {
 .search-overlay-top * {
     display: inline-block;
 }
+
+.search-overlay-bottom {
+    overflow: auto;
+}

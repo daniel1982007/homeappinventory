@@ -1,8 +1,14 @@
 <%- include("includes/header") %>
     <section id="record" class="light-grey">
         <div class="container py-3">
+            <div class="flex-row justify-content-between mb-2">
+                <a href="/profile/<%=post.author.username %>" class="mr-3 text-decoration-none text-dark"><i class="fa fa-long-arrow-left text-primary"></i>&nbsp返回查看</a>
+                <div>
+                    <a href="#" class="mr-3 text-primary"><i class="fa fa-edit"></i></a>
+                    <a href="#" class="mr-3 text-danger"><i class="fa fa-trash-o"></i></a>
+                </div>   
+            </div>
             <ul class="list-group text-center mb-3">
-                <li><a href="#" class="mr-3 text-primary"><i class="fa fa-edit"></i></a><a href="#" class="mr-3 text-danger"><i class="fa fa-trash-o"></i></a></li>
                 <li class="list-group-item active"><h2 class="mb-0"><%= post.category%></h2></li>
                 <li class="list-group-item light-grey"><span class="h4"><%= post.name%></span>&nbsp;<span class="h4"><%= post.quantity %>公斤</span></li>
             </ul>
