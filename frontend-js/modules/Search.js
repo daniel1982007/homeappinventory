@@ -80,8 +80,8 @@ export default class Search {
     }
 
     searchResultsHTML(posts) {
-        this.searchResultsDiv.innerHTML= `<ul class="search-result-list">
-        <li class="live-result-header">一共搜索到${posts.length}条结果</li>
+        this.searchResultsDiv.innerHTML= `<ul class="list-group">
+        <li class="list-group-item active">一共搜索到${posts.length}条结果</li>
         ${posts.map((post) => {
             let date = new Date(post.createDate)
             return `<li class="list-item">
@@ -95,14 +95,14 @@ export default class Search {
     injectHTML() {
         document.body.insertAdjacentHTML("beforeend", `<div class="search-overlay">
             <div class="search-overlay-top">
-                <div class="container-sm container-flex">
+                <div class="container p-3 d-flex flex-row">
                     <i class="fa fa-search fa-2x"></i>
                     <input id="searchInput" name="searchInput" placeholder="您想要搜寻什么...">
                     <a><i class="fa fa-close fa-2x"></i></a>
                 </div>
             </div>
             <div class="search-overlay-bottom">
-                <div class="container-sm">
+                <div class="container">
                     <div class="loader-search"><i class="fa fa-spinner fa-spin fa-2x"></i></div>
                     <div class="live-search-results"></div>
                 </div>
