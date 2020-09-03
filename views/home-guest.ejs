@@ -1,19 +1,21 @@
 <%- include("includes/header") %>
 
         <section id="content">
-            <div class="light-grey padding-tb">
+            <div class="pt-2 light-grey">
                 <% mistakes.forEach(function(mistake) { %>
-                    <div class="mistake-message"><%= mistake %></div>
+                    <div class="container">
+                        <div class="alert alert-danger mb-0 p-2 text-center"><%= mistake %></div>
+                    </div>  
                 <% }) %>
             </div>
-            <div class="d-flex flex-column pt-4 flex-md-row align-items-center text-center light-grey">
+            <div class="d-flex flex-column flex-md-row align-items-center text-center pt-4 light-grey">
                 <div class="container px-5 my-2">
                     <h2>团体生活需要你！</h2>
                     <p>这是我们的家，是我们共同经营的美地，这地的出产丰富，有小麦、大麦、葡萄树、无花果树、石榴树、有铁有铜。</p>
                 </div>
                 <div class="container px-5 my-2">
                     <% regErrors.forEach(function(regError) { %>
-                        <div class="alert alert-danger my-2"><%= regError %></div>
+                        <div class="alert alert-danger p-2 text-center"><%= regError %></div>
                     <% }) %>
                     
                     <h2>请注册用户</h2>
