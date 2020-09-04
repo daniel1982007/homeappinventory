@@ -3,7 +3,7 @@ const { register } = require("./userController")
 const { search } = require("../app")
 
 exports.viewTemplateCreate = function(req, res) {
-        res.render("post-template")
+        res.render("post-template", {errors: req.flash("errors")})
     }
 
 // exports.saveVeg = function(req, res) {
@@ -20,10 +20,17 @@ exports.viewTemplateCreate = function(req, res) {
 exports.create = function(req, res) {
     let post = new Post(req.body, req.visitorId, null, req.params.category)
     post.create().then((id) => {
-        res.redirect(`/${req.params.category}/${id}`)
+        //res.redirect(`/${req.params.category}/${id}`)
+        req.flash("success", "成功创建记录！")
+        req.session.save(() => {
+            res.redirect(`/${req.params.category}/${id}`)
+        })
     }).catch((errors) => {
         //res.send("abc")
-        res.render("post-template", {errors: errors})
+        req.flash("errors", errors)
+        req.session.save(() => {
+            res.redirect("/create")
+        })
     })
 }
 
@@ -31,7 +38,7 @@ exports.viewSingleRecord = async function(req, res) {
     try {
         let post = await Post.findSingleByCategoryAndId(req.params.category, req.params.id, req.visitorId)
         console.log(post)
-        res.render("single-post-view", {post: post})
+        res.render("single-post-view", {post: post, success: req.flash("success")})
     } catch {
         res.render("404")
     }  

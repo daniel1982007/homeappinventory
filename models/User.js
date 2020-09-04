@@ -57,8 +57,7 @@ User.prototype.validate = function() {
             this.errors.push("该邮箱已注册")
         }
         resolve()
-    }
-    )
+    })
 }
 
 User.prototype.login = function() {

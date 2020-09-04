@@ -2,6 +2,13 @@
 
     <section id="section-main" class="light-grey">
         <div class="container py-3">
+
+            <% errors.forEach((error) => { %>
+                <div class="alert alert-danger">
+                    <%= error %>
+                </div>
+            <% }) %>
+
             <form action="/create/vegetable" method="POST">
                 <div class="my-3">
                     <h2 class="text-center">蔬菜</h2>

@@ -47,8 +47,8 @@ Post.prototype.validate = function() {
     }
 
     // check validation of fields
-    if(this.data.name == "") {this.errors.push("please put a name")}
-    if(this.data.quantity == "") {this.errors.push("please put a quantity")}
+    if(this.data.name == "") {this.errors.push("请输入名称")}
+    if(this.data.quantity == "") {this.errors.push("请输入数量")}
 }
 
 Post.prototype.create = function() {
