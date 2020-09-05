@@ -74,6 +74,22 @@ exports.edit = function(req, res) {
     })
 }
 
+exports.delete = function(req, res) {
+    Post.delete(req.params.category, req.params.id, req.visitorId).then(() => {
+        req.flash("success", "you are successfully deleted this record")
+        req.session.save(() => {
+            res.redirect(`/profile/${req.session.user.usersymbol}`)
+        })
+    }).catch((errors) => {
+        // doesn't exist requested post(category and id)
+        // if requested post exist, but visitor is not the owner of requested post
+        req.flash("errors", errors)
+        req.session.save(() => {
+            res.redirect("/")
+        })
+    })
+}
+
 exports.search = function(req, res) {
     Post.search(req.body.searchTerm, req.visitorId).then((posts) => {
         res.json(posts)

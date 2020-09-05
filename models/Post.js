@@ -201,6 +201,26 @@ Post.prototype.actuallyUpdate = function() {
     })
 }
 
+Post.delete = function(category, id, visitorId) {
+    return new Promise(async (resolve, reject) => {
+        // check if exist of requested post
+        try {
+            let post = await Post.findSingleByCategoryAndId(category, id, visitorId)
+            // if post exist and visitor is the owner of post, then resolve
+            if(post.isVisitorOwner) {
+                await postsCollection.deleteOne({_id: new ObjectID(id)})
+                resolve()
+            } else {
+                // if visitor is not owner of the post
+                reject("you are not allowed for this operation")
+            }    
+        } catch {
+            // not valid category and id or record doesn't exist
+            reject("not valid")
+        }    
+    })
+}
+
 Post.search = function(inputValue, visitorId) {
     return new Promise(async (resolve, reject) => {
         if(typeof(inputValue) != "string") {

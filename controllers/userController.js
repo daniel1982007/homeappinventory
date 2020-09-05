@@ -14,7 +14,7 @@ exports.mustBeLoggedIn = function(req, res, next) {
 
 exports.home = function(req, res) {
     if(req.session.user) {
-        res.render("home-dashboard")
+        res.render("home-dashboard", {errors: req.flash("errors")})
     } else {
         res.render("home-guest", {mistakes: req.flash("errors"), regErrors: req.flash("regErrors")})
     }
@@ -92,7 +92,8 @@ exports.getUserPosts = function(req, res) {
         res.render("user-posts", 
             {foundUsername: req.userDoc.username, 
              foundUserAvatar: req.userDoc.avatar,
-             posts: posts})
+             posts: posts,
+            success: req.flash("success")})
     }).catch(function() {
         res.send("sorry, try again later!!.")
     })

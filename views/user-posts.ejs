@@ -1,6 +1,11 @@
 <%- include("includes/header") %>
 <div class="light-grey">
     <div class="container py-3">
+        <% success.forEach((successMessage) => { %>
+            <div class="alert alert-success text-center">
+                <%= successMessage %>
+            </div>
+        <% }) %>
         <div class="flex-row align-items-center">
             <span class="h3 mb-0">用户：</span><img src="<%= foundUserAvatar%>" class="img-fluid rounded-circle avatar-header d-inline-block mx-2" alt=""><span class="h3 mb-0"><%= foundUsername %></span>
         </div>

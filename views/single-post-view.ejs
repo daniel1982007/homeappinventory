@@ -6,12 +6,11 @@
                     <%= successMessage %>
                 </div>
             <% }) %>
-            <div class="flex-row justify-content-between mb-2">
+            <div class="flex-row justify-content-center mb-2">
                 <!-- <a href="/create" class="mr-3 text-decoration-none text-dark"><i class="fa fa-angle-double-left text-primary"></i>&nbsp返回继续创建</a> -->
-                <div>
-                    <a href="#" class="mr-3 text-primary"><i class="fa fa-edit"></i></a>
-                    <a href="#" class="mr-3 text-danger"><i class="fa fa-trash-o"></i></a>
-                </div>   
+                <a href="#" class="mr-3 text-primary"><i class="fa fa-edit"></i></a>
+                <!-- <a href="/delete/<%= post._id%>" class="mr-3 text-danger"><i class="fa fa-trash-o"></i></a> -->
+                <form action="/delete/<%= post.category%>/<%= post._id%>" method="POST"><button><i class="fa fa-trash-o"></i></button></form>
             </div>
             <ul class="list-group text-center mb-3">
                 <li class="list-group-item active"><h2 class="mb-0"><%= post.category%></h2></li>
