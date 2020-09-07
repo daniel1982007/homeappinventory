@@ -21,7 +21,7 @@ exports.create = function(req, res) {
     let post = new Post(req.body, req.visitorId, null, req.params.category)
     post.create().then((id) => {
         //res.redirect(`/${req.params.category}/${id}`)
-        req.flash("success", "成功创建记录！")
+        req.flash("success", "You've successfully created a record")
         req.session.save(() => {
             res.redirect(`/${req.params.category}/${id}`)
         })
@@ -46,7 +46,7 @@ exports.viewSingleRecord = async function(req, res) {
 
 exports.getEditScreen = function(req, res) {
     Post.findSingleByCategoryAndId(req.params.category, req.params.id, req.visitorId).then((post) => {
-        res.render("veg-edit", {post: post})
+        res.render("record-edit", {post: post, success: req.flash("success"), errors: req.flash("errors")})
         console.log(post)
     }).catch(() => {
         res.send("sorry, no such post")
@@ -54,16 +54,19 @@ exports.getEditScreen = function(req, res) {
 }
 
 exports.edit = function(req, res) {
-    let vegeNew = new Post(req.body, req.visitorId, req.params.id)
-    vegeNew.update().then((status) => {
+    let newRecord = new Post(req.body, req.visitorId, req.params.id, req.params.category)
+    newRecord.update().then((status) => {
         if(status == "success") {
-            res.send("great, your record is updated!")
+            req.flash("success", "you successfully updated this record.")
+            req.session.save(() => {
+                res.redirect(`/${req.params.category}/${req.params.id}/edit`)
+            })
         } else {
-            vegeNew.errors.forEach(function(error) {
+            newRecord.errors.forEach(function(error) {
                 req.flash("errors", error)
             })
             req.session.save(function() {
-                res.redirect(`/create-post-veg/${req.params.id}/edit`)
+                res.redirect(`/${req.params.category}/${req.params.id}/edit`)
             })
         }
     }).catch(() => {

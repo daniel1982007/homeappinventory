@@ -34,27 +34,27 @@ User.prototype.cleanUp = function() {
 
 User.prototype.validate = function() {
     return new Promise(async (resolve, reject) => {
-        if(this.data.username == "") {this.errors.push("请输入用户名")}
-        if(this.data.username != "" && !validator.isAlphanumeric(this.data.username)){this.errors.push("用户名必须是字母或数字")}
-        if(this.data.email == "") {this.errors.push("请输入注册电子邮箱")}
-        if(this.data.email !="" && !validator.isEmail(this.data.email)) {this.errors.push("输入邮箱无效")}
-        if(this.data.password == "") {this.errors.push("请输入密码")}
-        if(this.data.password.length >0 && this.data.password.length <12){this.errors.push("密码不能少于12个字符")}
-        if(this.data.password.length >50) {this.errors.push("密码过长")}
-        if(this.data.username.length >0 && this.data.username.length <6){this.errors.push("用户名不能少于6个字符")}
-        if(this.data.username.length >20) {this.errors.push("用户名过长")}
+        if(this.data.username == "") {this.errors.push("please set a username")}
+        if(this.data.username != "" && !validator.isAlphanumeric(this.data.username)){this.errors.push("username need to be letters mixed with numbers")}
+        if(this.data.email == "") {this.errors.push("please set an email")}
+        if(this.data.email !="" && !validator.isEmail(this.data.email)) {this.errors.push("not a valid email address")}
+        if(this.data.password == "") {this.errors.push("please set a password")}
+        if(this.data.password.length >0 && this.data.password.length <12){this.errors.push("password need be more than 12 symbols")}
+        if(this.data.password.length >50) {this.errors.push("password is too long")}
+        if(this.data.username.length >0 && this.data.username.length <6){this.errors.push("username need be more than 6 symbols")}
+        if(this.data.username.length >20) {this.errors.push("username is too long")}
         
         // check if username has been already used
         let usernameExist = await userCollection.findOne({username: this.data.username})
         // findOne function resolves a database doc object if there is one, otherwise it resolves null object
         if(usernameExist) {
-            this.errors.push("该用户名已注册")
+            this.errors.push("this username has been taken")
         }
         
         // check if email has been already used
         let emailExist = await userCollection.findOne({email: this.data.email})
         if(emailExist) {
-            this.errors.push("该邮箱已注册")
+            this.errors.push("this email has been registered")
         }
         resolve()
     })
@@ -67,9 +67,9 @@ User.prototype.login = function() {
             if(attemptedOne && bcrypt.compareSync(this.data.password, attemptedOne.password)) {
                 this.data = attemptedOne
                 this.getAvatar()
-                resolve("登陆成功")
+                resolve("successfully logged in")
             } else {
-                reject("用户名或密码错误，请重新输入！")
+                reject("username or password is not correct")
             }
         }).catch(function() {
             reject("sorry, please try again later!")

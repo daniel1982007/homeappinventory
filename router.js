@@ -19,8 +19,8 @@ router.post("/create/:category", userController.mustBeLoggedIn, postController.c
 
 // router.get("/create/:category",)
 router.get("/:category/:id", postController.viewSingleRecord)
-router.get("/create-post-veg/:id/edit", postController.getEditScreen)
-router.post("/create-post-veg/:id/edit", postController.edit)
+router.get("/:category/:id/edit", postController.getEditScreen)
+router.post("/:category/:id/edit", postController.edit)
 router.post("/delete/:category/:id", postController.delete)
 
 router.post("/search", postController.search)

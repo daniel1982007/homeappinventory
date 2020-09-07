@@ -15,27 +15,27 @@
 <body>
     <header id="header" class="bg-main">
         <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3">
-            <a href="/" class="text-decoration-none text-dark mb-2 mb-md-0"><h2 class="mb-0 font-weight-bold">我们的家</h2></a>
+            <a href="/" class="text-decoration-none text-dark mb-2 mb-md-0"><h2 class="mb-0 font-weight-bold">Our Home</h2></a>
         <% if(user) { %>
             <div class="col-md-auto flex-row">
                 <a href="#" class="text-dark pl-0 pr-2"><i class="fa fa-search fa-lg"></i></a>
                 <a href="/profile/<%= user.usersymbol %>" class="px-2"><img class="img-fluid rounded-circle avatar-header" src="<%= user.avatar %>" alt=""></a>
-                <a href="/create" class="btn btn-primary bg-light text-dark mx-2">创建</a> 
+                <a href="/create" class="btn btn-primary bg-light text-dark mx-2">Create</a> 
                 <form action="/logout" method="POST" class="ml-2">
-                    <button type="submit" class="btn btn-primary bg-light text-dark">登出</button>
+                    <button type="submit" class="btn btn-primary bg-light text-dark">Logout</button>
                 </form>
             </div>
             <% } else { %>
                 <form action="/login" method="POST">
                     <div class="row align-items-center">
                         <div class="col-md mt-2 mt-md-0 pr-md-0">
-                            <input type="text" name="username" id="usn" class="form-control form-control-md" placeholder="用户名">
+                            <input type="text" name="username" id="usn" class="form-control form-control-md" placeholder="username">
                         </div>
                         <div class="col-md mt-2 mt-md-0 pr-md-0">
-                            <input type="password" name="password" id="pwd" class="form-control form-control-md" placeholder="密码">
+                            <input type="password" name="password" id="pwd" class="form-control form-control-md" placeholder="password">
                         </div>
                         <div class="col-auto mt-2 mt-md-0">
-                            <button type="submit" class="btn btn-primary">登录</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                         <!-- <h1 class="col-sm-5">123</h1>
                         <h1 class="col-sm-5">abc</h1> -->

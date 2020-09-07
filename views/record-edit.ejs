@@ -1,0 +1,46 @@
+<%- include("includes/header")%>
+
+    <div class="light-grey py-3">
+        <div class="container-md">
+            <% success.forEach( successMessage => { %>
+                <div class="alert alert-success text-center">
+                    <%= successMessage %>
+                </div>
+            <% }) %>
+            <% errors.forEach( error => { %>
+                <div class="alert alert-danger">
+                    <%= error %>
+                </div>
+            <% }) %>
+
+            <ul class="list-group text-center">
+                <li class="list-group-item active"><%= post.category%></li>
+                <li class="list-group-item light-grey">
+                    <form action="/<%= post.category%>/<%= post._id%>/edit" method="POST">
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <input type="text" name="name" value="<%= post.name%>" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <input type="number" name="quantity" step="0.01" value="<%= post.quantity%>" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <select name="unit" class="form-select">
+                                    <option value="kg" selected>kg</option>
+                                    <option value="box">box</option>
+                                    <option value="package">package</option>
+                                    <option value="single">piece</option>
+                                    <option value="other">other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary">update</button>
+                            </div>
+                        </div>
+                    </form> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+<%- include("includes/footer")%>

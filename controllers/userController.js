@@ -5,7 +5,7 @@ exports.mustBeLoggedIn = function(req, res, next) {
     if(req.session.user) {
         next()
     } else {
-        req.flash("errors", "你需要登录后才能创建账单")
+        req.flash("errors", "you need be logged in to created a record!")
         req.session.save(function() {
             res.redirect("/")
         })

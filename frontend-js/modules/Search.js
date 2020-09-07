@@ -81,11 +81,11 @@ export default class Search {
 
     searchResultsHTML(posts) {
         this.searchResultsDiv.innerHTML= `<ul class="list-group">
-        <li class="list-group-item active">一共搜索到${posts.length}条结果</li>
+        <li class="list-group-item active">Totally ${posts.length} results are found</li>
         ${posts.map((post) => {
             let date = new Date(post.createDate)
             return `<li class="list-item">
-                    <a href="/${post.category}/${post._id}" class="a-flex"><img src="${post.author.avatar}" class="avatar-tiny"> <p class="search-title-size">${post.name}</p>  创建人${post.author.username} 于 ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}</a>
+                    <a href="/${post.category}/${post._id}" class="a-flex"><img src="${post.author.avatar}" class="avatar-tiny"><p class="search-title-size">${post.name}</p>  ${post.author.username} on ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}</a>
                 </li>`
         }).join("")}
     </ul>`
@@ -97,13 +97,13 @@ export default class Search {
             <div class="search-overlay-top">
                 <div class="container-md p-3 d-flex flex-row">
                     <div class="col-1"><i class="fa fa-search fa-2x"></i></div>
-                    <input id="searchInput" name="searchInput" class="col-10" placeholder="您想要搜寻什么...">
+                    <input id="searchInput" name="searchInput" class="col-10" placeholder="what do you want to search">
                     <div class="col-1"><a><i class="fa fa-close fa-2x"></i></a></div>
                     
                 </div>
             </div>
             <div class="search-overlay-bottom">
-                <div class="container">
+                <div class="container pt-3 text-center">
                     <div class="loader-search"><i class="fa fa-spinner fa-spin fa-2x"></i></div>
                     <div class="live-search-results"></div>
                 </div>

@@ -18,11 +18,13 @@ Post.prototype.cleanUp = function() {
     if(typeof(this.category) != "string") {this.category = ""}
     if(typeof(this.data.name) != "string") {this.data.name = ""}
     if(typeof(this.data.quantity) != "string") {this.data.quantity = ""}
+    if(typeof(this.data.unit) != "string") {this.data.unit = ""}
 
     this.data = {
         category: this.category.trim(),
         name: this.data.name.trim(),
         quantity: this.data.quantity.trim(),
+        unit: this.data.unit.trim(),
         createDate: new Date(),
         author: new ObjectID(this.userId)
     }
@@ -47,8 +49,9 @@ Post.prototype.validate = function() {
     }
 
     // check validation of fields
-    if(this.data.name == "") {this.errors.push("请输入名称")}
-    if(this.data.quantity == "") {this.errors.push("请输入数量")}
+    if(this.data.name == "") {this.errors.push("A name is required")}
+    if(this.data.quantity == "") {this.errors.push("quantity is required")}
+    if(this.data.unit == "") {this.errors.push("choose an unit")}
 }
 
 Post.prototype.create = function() {
@@ -97,6 +100,7 @@ Post.reusablePostQuery = function(uniqueQueryOperation, visitorId) {
                 category: 1,
                 name: 1,
                 quantity: 1,
+                unit: 1,
                 createDate: 1,
                 authorId: "$author",
                 author: {$arrayElemAt: ["$authorDocument", 0]}
@@ -179,10 +183,10 @@ Post.prototype.update = function() {
                 let status = await this.actuallyUpdate()
                 resolve(status)
             } else {
-                reject()
+                reject("you don't have permission to do this!")
             }
         } catch {
-            reject()
+            reject("requested record doesn't even exist!")
         }
     })
 }
@@ -190,10 +194,10 @@ Post.prototype.update = function() {
 Post.prototype.actuallyUpdate = function() {
     return new Promise(async (resolve, reject) => {
         this.cleanUp()
-        this.validateVeg()
+        this.validate()
         
         if(!this.errors.length) {
-            await postsCollection.findOneAndUpdate({_id: ObjectID(this.requestedPostId)}, {$set: {vegetable: this.data.vegetable, vegequantity: this.data.vegequantity}})
+            await postsCollection.findOneAndUpdate({_id: ObjectID(this.requestedPostId)}, {$set: {name: this.data.name, quantity: this.data.quantity, unit: this.data.unit, createDate: new Date()}})
             resolve("success")
         } else {
             resolve("failure")
